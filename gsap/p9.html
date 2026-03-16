@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../src/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+
+
+</head>
+<body class="overflow-x-hidden">
+    <div class="h-screen w-screen bg-amber-400 relative" id="main">
+            
+        <div id="nav" class="flex justify-between  pl-10 pr-10 pt-5">
+            <div id="logo">seyam</div>
+            <svg id="bar" class="h-10 w-10 text-amber-50 hover:bg-amber-50 hover:rounded-4xl p-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><!--!Font Awesome Free v7.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.-->
+                <path d="M96 160C96 142.3 110.3 128 128 128L512 128C529.7 128 544 142.3 544 160C544 177.7 529.7 192 512 192L128 192C110.3 192 96 177.7 96 160zM96 320C96 302.3 110.3 288 128 288L512 288C529.7 288 544 302.3 544 320C544 337.7 529.7 352 512 352L128 352C110.3 352 96 337.7 96 320zM544 480C544 497.7 529.7 512 512 512L128 512C110.3 512 96 497.7 96 480C96 462.3 110.3 448 128 448L512 448C529.7 448 544 462.3 544 480z"/>
+            </svg>
+
+        </div>
+        <div id="sidebar" class="text-5xl flex flex-col justify-center items-center absolute top-0 right-[-50%] bg-blue-500 w-[50%] h-screen">
+            
+            
+            <div class="scon m-7 font-medium">home</div>
+            <div class="scon m-7 font-medium">about</div>
+            <div class="scon m-7 font-medium">contract</div>
+            <div class="scon m-7 font-medium">help centre</div>
+            <i id="x"         class=" fa-solid fa-x absolute right-10 top-10 z-10 "></i>
+
+
+            </div>
+
+    </div>
+    
+  
+<script type="module">
+ import gsap from 'gsap'
+var tlp9 = gsap.timeline()
+
+const bar = document.querySelector('#bar');
+
+
+tlp9.to("#sidebar",{
+    right:"0"
+})
+tlp9.from(".scon",{
+  scale:0.2,
+  opacity:0.1,
+  
+  stagger:0.2,
+  ease: "back.out(1.7)",
+
+})
+
+tlp9.pause()
+bar.addEventListener("click",e=>{
+
+tlp9.play()
+    
+})
+document.querySelector("#x").addEventListener("click",e=>{
+
+     tlp9.reverse()
+    
+    // gsap.to("#sidebar",{
+    //     right:"-50%"
+    // })
+
+})
+
+
+</script>
+</body>
+</html>

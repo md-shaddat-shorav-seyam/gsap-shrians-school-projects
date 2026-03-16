@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      #cursor {
+        background-color: red;
+        height: 30px;
+        width: 30px;
+        border-radius: 50%;
+        position: fixed;
+        z-index: 9;
+        text-align: center;
+      }
+      .fill {
+        height: 100vh;
+        width: 100vw;
+        background-color: blue;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        border: 2px solid red;
+      }
+      .img {
+        height: 30%;
+        width: 40%;
+        /* background: url("assets/p1.jpg"); */
+        background-color: red;
+        position: relative;
+      }
+
+      #img1 {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+      }
+      #mask {
+        width: 100%;
+        height: 100%;
+        background-color: transparent;
+        position: absolute;
+        z-index: 10;
+      }
+    </style>
+  </head>
+  <body id="body">
+    <div id="cursor"></div>
+    <div class="fill">
+      <div class="img">
+        <div id="mask"></div>
+
+        <img id="img1" src="../src/assets/p1.jpg" alt="hi" srcset="" />
+      </div>
+    </div>
+
+    <div class="fill"></div>
+
+    <script type="module">
+      import gsap from "gsap";
+
+      //     const body = document.querySelector("#body")
+
+      //   body.addEventListener("mousemove",(e)=>{
+
+      //        console.log(e);
+
+      //       gsap.to("#cursor",{
+      //         x:`${e.x}`,
+      //         y:`${e.y}`
+      //       })
+
+      //   })
+
+      const body = document.querySelector("html");
+
+      // body.addEventListener("mousemove",(e)=>{
+      //   e.preventDefault();
+      //     gsap.to("#cursor",{
+      //         duration:0.1,
+      //         x: e.x - 15,
+      //         y: e.y - 15
+      //     })
+
+      // })
+
+      body.addEventListener("mousemove", (e) => {
+        e.preventDefault();
+        gsap.to("#cursor", {
+          duration: 0.1,
+          x: e.x,
+          y: e.y,
+        });
+      });
+
+      // body.addEventListener("mouseleave")
+
+      document.querySelector("#mask").addEventListener("mouseenter", (e) => {
+        document.querySelector("#cursor").innerHTML = "hi";
+        gsap.to("#cursor", {
+          // x: e.x - 15,
+          // y: e.y - 15,
+          scale: 4,
+        });
+      });
+
+      document.querySelector("#mask").addEventListener("mouseleave", (e) => {
+        document.querySelector("#cursor").innerHTML = "";
+
+        gsap.to("#cursor", {
+          // x: e.x - 15,
+          // y: e.y - 15,
+          scale: 1,
+        });
+      });
+    </script>
+  </body>
+</html>

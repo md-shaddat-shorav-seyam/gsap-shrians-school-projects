@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        nav{
+            background-color: rgb(178, 200, 9);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 50px;
+            gap: 10px;
+        }
+        ul{
+            display: flex;
+            justify-content: space-evenly;
+            gap: 60px;
+            font-size: 30px;
+            font-weight: 700;
+            list-style: none;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <h1 id="ht">my company</h1>
+        <ul>
+            <li>home</li>
+            <li>about</li>
+            <li>follow</li>
+          
+        </ul>
+    </nav>
+
+    <h1 id="txt">the Sharians school</h1>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/gsap.min.js"></script>
+
+    <script>
+        // import { gsap } from "gsap";
+        tl = gsap.timeline();
+        gsap.from("#ht,li",{
+            y:20,
+            opacity:0,
+            duration:2,
+            stagger:1
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box{
+            height: 300px;
+            width: 300px;
+            background-color: sandybrown;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">hi</div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/gsap.min.js"></script>
+<script>
+    gsap.to("#box",{
+        x:1200,
+        duration:3,
+        borderRadius:"50%",
+        backgroundColor:"red",
+        rotate:280,
+        y:20
+    })
+</script>
+</html>
